@@ -1,9 +1,24 @@
+import { IsEnum, IsNumber, IsOptional, IsString } from 'class-validator';
 import { Category } from '../book.enum';
 
 export class UpdateBookDto {
-  readonly title: string;
-  readonly description: string;
-  readonly author: string;
-  readonly price: number;
-  readonly category: Category;
+  @IsOptional()
+  @IsString()
+  title: string;
+
+  @IsOptional()
+  @IsString()
+  description: string;
+
+  @IsOptional()
+  @IsString()
+  author: string;
+
+  @IsOptional()
+  @IsNumber()
+  price: number;
+
+  @IsOptional()
+  @IsEnum(Category, { message: 'Please provide a valid category' })
+  category: Category;
 }
