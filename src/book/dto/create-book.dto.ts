@@ -1,4 +1,5 @@
 import {
+  IsEmpty,
   IsEnum,
   IsNotEmpty,
   IsNumber,
@@ -6,6 +7,7 @@ import {
   IsString,
 } from 'class-validator';
 import { Category } from '../book.enum';
+import { User } from 'src/auth/auth.model';
 
 export class CreateBookDto {
   @IsNotEmpty()
@@ -27,4 +29,7 @@ export class CreateBookDto {
   @IsNotEmpty()
   @IsEnum(Category, { message: 'Please provide a valid category value' })
   category: Category;
+
+  @IsEmpty({ message: 'You should not pass user' })
+  user: User;
 }
