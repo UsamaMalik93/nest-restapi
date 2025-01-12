@@ -10,7 +10,6 @@ import * as bcrypt from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import { SignUpDto } from './dto/signup.dto';
 import { LogInDto } from './dto/login.dto';
-import { use } from 'passport';
 
 @Injectable()
 export class AuthService {
